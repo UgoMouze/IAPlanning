@@ -1,7 +1,7 @@
 # IAPlanning
 Learning how to do planning in Planning Domain Definition Language.
 ## Practice
-Using the domain definition [gripper.pddl](https://github.com/UgoMouze/IAPlanning/blob/gripper/gripper.pddl) and the problem definition [gripperpb1.pddl](https://github.com/UgoMouze/IAPlanning/blob/gripper/gripperpb1.pddl)  
+Using the domain definition [gripper.pddl](https://github.com/UgoMouze/IAPlanning/blob/main/gripper/gripper.pddl) and the problem definition [gripperpb1.pddl](https://github.com/UgoMouze/IAPlanning/blob/main/gripper/gripperpb1.pddl)  
 
 ***Draw***  
 *Draw the states of the problem*  
@@ -19,7 +19,7 @@ The operators are `Pick`, `Move` and `Drop`.
 - *The goal is to turn all three switches on.*
 - *Compute a plan for this problem*  
 
-The solution can be found in [pb1.pddl](https://github.com/UgoMouze/IAPlanning/blob/switch/pb1.pddl) that is using the domain defined with [switches.pddl](https://github.com/UgoMouze/IAPlanning/blob/switch/switches.pddl).  
+The solution can be found in [pb1.pddl](https://github.com/UgoMouze/IAPlanning/blob/main/switch/pb1.pddl) that is using the domain defined with [switches.pddl](https://github.com/UgoMouze/IAPlanning/blob/main/switch/switches.pddl).  
 It represents each states within a category `state` that is used in `swstate` to link it with a switch.  
 
 ***Version2***  
@@ -29,6 +29,84 @@ It represents each states within a category `state` that is used in `swstate` to
 - *The five switches are in a row so that each switch has two neighbors, except the two at the ends of the row which only have one.*
 - *The five switches are in initial positions: {off, off, on, off, off}.*  
   
-The solution of this new problem is on the next file [pb2.pddl](https://github.com/UgoMouze/IAPlanning/blob/switch/pb2.pddl) that is using the domain defined with [switches2.pddl](https://github.com/UgoMouze/IAPlanning/blob/switch/switches2.pddl).  
+The solution of this new problem is on the next file [pb2.pddl](https://github.com/UgoMouze/IAPlanning/blob/main/switch/pb2.pddl) that is using the domain defined with [switches2.pddl](https://github.com/UgoMouze/IAPlanning/blob/main/switch/switches2.pddl).  
 For this one, the problem required to have neighbors. Remodelling the states was required. The states are now defined with `isOn` and `isOff` that are linked with a switch, and the is now a `neighbors` relation that will be written on both sides to be exhaustive.
+
+## Understanding GraphPlan Algorithm
+Using the domain definition [blockworld.txt](https://github.com/UgoMouze/IAPlanning/blob/main/BlocksWorld/blocksworld.txt) and the problem definition [blocksworldpb1.pddl](https://github.com/UgoMouze/IAPlanning/blob/main/BlocksWorld/blocksworldpb1.txt)  
+
+***Representation***  
+*What are they representing?*  
+
+ //TODO  
+
+ ***Meaning***  
+*What is the meaning of each of the three lines between [, ] in blocksworld.txt?*  
+
+ //TODO  
+
+***Execution***  
+*Is the plan produced in `output.pln` correct?*  
+
+//TODO  
+
+*What is th depth of the plan?*  
+
+//TODO  
+
+***Interpretation***  
+Open and interpret the graphplan trace presented in `output.gp`  
+*What is the `proposition` layer?*  
+
+//TODO  
+
+*What is the `action` layer?*  
+
+//TODO  
+
+*What are the `Mutex expressions` that are written?*  
+
+//TODO  
+
+*What does the `noop` term that appears in some expressions mean? Why do we need it?*
+
+//TODO  
+
+*Is the `number of Action Layers` consistent with the depth of the plan? Is it always the case?*  
+
+//TODO  
+
+*Why do we have only the operator `Pickup` in the first Action Layer?*  
+
+//TODO  
+
+*Why do we have a Mutex relation between `noopClear(a1)` and `Pickup(a1)` in the first Action Layer? Why the other Mutex?*  
+
+//TODO  
+
+## Modeling Domains and Problems planning with graphplan
+In this part, we will use [javagp](https://github.com/pucrs-automated-planning/javagp).  
+
+***Rubik's cube***  
+*Model and represent in PDDL the domain and problem of 1D Rubik’s Cube from the description given below.*  
+
+*1D Rubik's Cube is a line of 6 numbers with original position: 1 2 3 4 5 6 which can be rotated in
+3 different ways in groups of four:*  
+operator 0: **1 2 3 4 5 6** -> **4 3 2 1 5 6**  
+operator 1: **1 2 3 4 5 6** -> **1 5 4 3 2 6**  
+operator 2: **1 2 3 4 5 6** -> **1 2 6 5 4 3**  
+*Given a scrambled line, return the shortest sequence of rotations to restore the original position.*  
+*Examples:*  
+*solve 1 3 2 6 5 4*  
+*result is: 1 2 1*  
+*solve 5 6 2 1 4 3*  
+*result is: 0 2*  
+*solve 6 5 4 1 2 3*  
+*result is: 0 1 2*  
+
+//TODO  
+
+***Test and validate***  
+*Test and validate your domain and problems representation by launching the [javagp](https://github.com/pucrs-automated-planning/javagp) graphplan planner on them. What is the resulting plan? To edit the domain and problem
+files in PDDL, you can use this [editor](http://editor.planning.domains/)*
 
