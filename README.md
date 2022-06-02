@@ -38,24 +38,28 @@ Using the domain definition [blockworld.txt](https://github.com/UgoMouze/IAPlann
 ***Representation***  
 *What are they representing?*  
 
- //TODO  
+ The file `blocksworld.txt` represents a set of action to pick and place blocks on top of a table, or on top of each other.  
+ Meanwhile, the file `blocksworldpb1.txt` is representing a set of items that are present in the representation and. It is also representing the initial state and the final state.   
 
  ***Meaning***  
-*What is the meaning of each of the three lines between [, ] in blocksworld.txt?*  
+*What is the meaning of each of the three lines between `[` and `]` in `blocksworld.txt`?*  
 
- //TODO  
+The three lines between brackets are representing the set of states that are needed to perform the operation.  
+Then there are the states that are changed during the operation. 
+Finally it is represented the states that are removed from the set of current actions after the action is performed.  
 
 ***Execution***  
-*Is the plan produced in `output.pln` correct?*  
+*Is the plan produced in [output.pln](https://github.com/UgoMouze/IAPlanning/blob/main/output/output.pln) correct?*  
 
-//TODO  
+The plan given is correct to give the wanted state.  
+Indeed, by using the operator `Pickup(a1)`, the state `Holding(a1)` is permitting the action `Stack(a1, b1)` that will make the state `On(a1, b1)`.  
 
-*What is th depth of the plan?*  
+*What is the depth of the plan?*  
 
-//TODO  
+The number of objects in the file is 2, so the depth of the plan 2.  
 
 ***Interpretation***  
-Open and interpret the graphplan trace presented in `output.gp`  
+Open and interpret the graphplan trace presented in [output.gp](https://github.com/UgoMouze/IAPlanning/blob/main/output/output.gp)  
 *What is the `proposition` layer?*  
 
 //TODO  
@@ -96,11 +100,14 @@ operator 0: **1 2 3 4 5 6** -> **4 3 2 1 5 6**
 operator 1: **1 2 3 4 5 6** -> **1 5 4 3 2 6**  
 operator 2: **1 2 3 4 5 6** -> **1 2 6 5 4 3**  
 *Given a scrambled line, return the shortest sequence of rotations to restore the original position.*  
+
 *Examples:*  
 *solve 1 3 2 6 5 4*  
 *result is: 1 2 1*  
+
 *solve 5 6 2 1 4 3*  
 *result is: 0 2*  
+
 *solve 6 5 4 1 2 3*  
 *result is: 0 1 2*  
 
@@ -108,5 +115,5 @@ operator 2: **1 2 3 4 5 6** -> **1 2 6 5 4 3**
 
 ***Test and validate***  
 *Test and validate your domain and problems representation by launching the [javagp](https://github.com/pucrs-automated-planning/javagp) graphplan planner on them. What is the resulting plan? To edit the domain and problem
-files in PDDL, you can use this [editor](http://editor.planning.domains/)*
+files in PDDL, you can use this [editor](http://editor.planning.domains/)*.
 
