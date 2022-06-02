@@ -62,31 +62,31 @@ The number of objects in the file is 2, so the depth of the plan 2.
 Open and interpret the graphplan trace presented in [output.gp](https://github.com/UgoMouze/IAPlanning/blob/main/output/output.gp)  
 *What is the `proposition` layer?*  
 
-//TODO  
+The proposition layer is stating the different states that are in the moment the layer has been stated.  
 
 *What is the `action` layer?*  
 
-//TODO  
+The action layer enumerates the different actions that can be operated after the proposition layer.  
 
 *What are the `Mutex expressions` that are written?*  
 
-//TODO  
+The Mutex expressions are listing the propositions/actions that are not possible with the one expressed before.  
 
 *What does the `noop` term that appears in some expressions mean? Why do we need it?*
 
-//TODO  
+The noop term signifies there are no action made to change the proposition after the `noop`. We need this expression for backtracking purposes.  
 
 *Is the `number of Action Layers` consistent with the depth of the plan? Is it always the case?*  
 
-//TODO  
+The number of action layers are consistent with the depth of the plan in our case. If we had used a different method, for example using A*, it could have been different to find the optimal solution.  
 
 *Why do we have only the operator `Pickup` in the first Action Layer?*  
 
-//TODO  
+As the operator `Pickup` is the only one that can be operated within the scope of the first proposition layer, it is the only one that appears in the first action layer.  
 
 *Why do we have a Mutex relation between `noopClear(a1)` and `Pickup(a1)` in the first Action Layer? Why the other Mutex?*  
 
-//TODO  
+We have the Mutex relation between `noopClear(a1)` and `Pickup(a1)` because it is impossible to have the proposition `Clear(a1)` after using the action `Pickup(a1)`.  
 
 ## Modeling Domains and Problems planning with graphplan
 In this part, we will use [javagp](https://github.com/pucrs-automated-planning/javagp).  
