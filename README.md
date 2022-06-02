@@ -6,7 +6,7 @@ Using the domain definition [gripper.pddl](https://github.com/UgoMouze/IAPlannin
 
 ***Draw***  
 *Draw the states of the problem*  
-//TODO  
+![problem description]( https://github.com/UgoMouze/IAPlanning/blob/main/problem_description.png "problem_description")  
   
 
 ***Operators***  
