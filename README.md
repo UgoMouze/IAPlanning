@@ -129,7 +129,7 @@ operator 2: **1 2 3 4 5 6** -> **1 2 6 5 4 3**
 *solve 6 5 4 1 2 3*  
 *result is: 0 1 2*  
 
-//TODO  
+The files can be found on [RubiksCube](https://github.com/UgoMouze/IAPlanning/tree/main/RubiksCube)  
 
 ---
 ***Test and validate***  
