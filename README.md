@@ -39,7 +39,7 @@ For this one, the problem required to have neighbors. Remodelling the states was
 
 ---
 ## Understanding GraphPlan Algorithm
-Using the domain definition [blockworld.txt](https://github.com/UgoMouze/IAPlanning/blob/main/BlocksWorld/blocksworld.txt) and the problem definition [blocksworldpb1.pddl](https://github.com/UgoMouze/IAPlanning/blob/main/BlocksWorld/blocksworldpb1.txt)  
+Using the domain definition [blockworld.txt](https://github.com/UgoMouze/IAPlanning/blob/main/BlocksWorld/blocksworld.txt) and the problem definition [blocksworldpb1.txt](https://github.com/UgoMouze/IAPlanning/blob/main/BlocksWorld/blocksworldpb1.txt)  
 
 ***Representation***  
 *What are they representing?*  
@@ -51,54 +51,54 @@ Using the domain definition [blockworld.txt](https://github.com/UgoMouze/IAPlann
  ***Meaning***  
 *What is the meaning of each of the three lines between `[` and `]` in `blocksworld.txt`?*  
 
-The three lines between brackets are representing the set of states that are needed to perform the operation.  
-Then there are the states that are changed during the operation. 
-Finally it is represented the states that are removed from the set of current actions after the action is performed.  
+The three lines between brackets are representing the set of states that are `needed to perform the operation`.  
+Then there are the `states that are updated` after the operation. 
+Finally it is represented the `states that are removed` from the set of current actions after the action is performed.  
 
 ---
 ***Execution***  
 *Is the plan produced in [output.pln](https://github.com/UgoMouze/IAPlanning/blob/main/output/output.pln) correct?*  
 
-The plan given is correct to give the wanted state.  
+The plan given is correct since it gives the demanded state.  
 Indeed, by using the operator `Pickup(a1)`, the state `Holding(a1)` is permitting the action `Stack(a1, b1)` that will make the state `On(a1, b1)`.  
 
 -------
 
 *What is the depth of the plan?*  
 
-The number of objects in the file is 2, so the depth of the plan 2.  
+The number of objects in the file is 2, so the `depth of the plan 2`.  
 
 ---
 ***Interpretation***  
 Open and interpret the graphplan trace presented in [output.gp](https://github.com/UgoMouze/IAPlanning/blob/main/output/output.gp)  
 *What is the `proposition` layer?*  
 
-The proposition layer is stating the different states that are in the moment the layer has been stated.  
+The proposition layer is stating the `different states` that are in the moment the layer has been stated.  
 
 ---
 *What is the `action` layer?*  
 
-The action layer enumerates the different actions that can be operated after the proposition layer.  
+The action layer enumerates the `different actions` that can be operated after the proposition layer.  
 
 ---
 *What are the `Mutex expressions` that are written?*  
 
-The Mutex expressions are listing the propositions/actions that are not possible with the one expressed before.  
+The Mutex expressions are listing the propositions/actions that are `not compatible` with the one expressed before.  
 
 ---
 *What does the `noop` term that appears in some expressions mean? Why do we need it?*
 
-The noop term signifies there are no action made to change the proposition after the `noop`. We need this expression for backtracking purposes.  
+The noop term signifies there are `no action made to change` the proposition after the `noop`. We need this expression for `backtracking` purposes.  
 
 ---
 *Is the `number of Action Layers` consistent with the depth of the plan? Is it always the case?*  
 
-The number of action layers are consistent with the depth of the plan in our case. If we had used a different method, for example using A*, it could have been different to find the optimal solution.  
+The number of action layers are consistent with the depth of the plan `in our case`. If we had used a different method, for example using A*, it could have been different to find the optimal solution.  
 
 ---
 *Why do we have only the operator `Pickup` in the first Action Layer?*  
 
-As the operator `Pickup` is the only one that can be operated within the scope of the first proposition layer, it is the only one that appears in the first action layer.  
+As the operator `Pickup` is the only one that `can be operated` within the scope of the first proposition layer, it is the only one that appears in the first action layer.  
 
 ---
 *Why do we have a Mutex relation between `noopClear(a1)` and `Pickup(a1)` in the first Action Layer? Why the other Mutex?*  
